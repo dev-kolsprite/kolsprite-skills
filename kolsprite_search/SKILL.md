@@ -1,6 +1,6 @@
 ---
 name: kolsprite_search
-description: Automatically use the KOLSprite MCP tools to search TikTok creators, videos, products, and shops based on the user's intent.
+description: Automatically use the KOLSprite MCP tools for straightforward TikTok creator, video, product, and shop lookups. Do not use for multi-step business research, opportunity evaluation, cold-start planning, competitor research, or growth strategy.
 ---
 
 # Purpose
