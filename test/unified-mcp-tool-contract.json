@@ -1,0 +1,14 @@
+{
+  "endpoint": "https://mcp.kolsprite.com/mcp",
+  "status": "release_ready",
+  "preparedAt": "2026-08-26",
+  "source": "KOLSprite Skills 0.4.0 release contract; verify against MCP tools/list during deployment",
+  "tools": [
+    "creator_search",
+    "product_search",
+    "shop_search",
+    "video_search",
+    "caption_extract_url",
+    "asin_video_search"
+  ]
+}

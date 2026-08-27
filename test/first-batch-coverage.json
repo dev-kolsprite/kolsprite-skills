@@ -1,0 +1,130 @@
+[
+  {
+    "id": "pagination-deduplication",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "incomplete-quota-error",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "local-sort-collected-scope",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "ambiguous-growth-unit",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "video-creator-id-crosscheck",
+    "owners": ["tiktok-shop-growth-research/references/creator-partnership.md"]
+  },
+  {
+    "id": "query-scope-pages-count-stop",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "action-metric-stop-condition",
+    "owners": ["kolsprite-search/SKILL.md", "tiktok-shop-growth-research/references/cold-start.md", "tiktok-growth-plan/references/workflow.md"]
+  },
+  {
+    "id": "caption-batch-progress",
+    "owners": ["tiktok-shop-growth-research/references/winning-content.md"]
+  },
+  {
+    "id": "common-period-sample-comparability",
+    "owners": ["tiktok-shop-growth-research/references/competitor-growth.md", "tiktok-account-audit/references/workflow.md"]
+  },
+  {
+    "id": "category-synonym-exclusion-catid-normalization",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md"]
+  },
+  {
+    "id": "cross-layer-evidence",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md"]
+  },
+  {
+    "id": "keyword-sample-boundary",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md", "tiktok-shop-growth-research/references/judgment-guide.md"]
+  },
+  {
+    "id": "two-independent-signals",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md", "tiktok-shop-growth-research/references/cold-start.md"]
+  },
+  {
+    "id": "entry-decision-labels",
+    "owners": ["tiktok-shop-growth-research/references/judgment-guide.md"]
+  },
+  {
+    "id": "creative-center-optional-source",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md"]
+  },
+  {
+    "id": "platform-compliance-checks",
+    "owners": ["tiktok-shop-growth-research/references/opportunity-scan.md", "tiktok-shop-growth-research/references/cold-start.md"]
+  },
+  {
+    "id": "non-rigid-missing-input",
+    "owners": ["tiktok-shop-growth-research/references/principles.md", "tiktok-shop-growth-research/SKILL.md"]
+  },
+  {
+    "id": "canonical-profile-validation",
+    "owners": ["tiktok-account-audit/references/workflow.md"]
+  },
+  {
+    "id": "account-benchmark-identity",
+    "owners": ["tiktok-account-audit/references/workflow.md"]
+  },
+  {
+    "id": "account-types-and-video-roles",
+    "owners": ["tiktok-account-audit/references/workflow.md", "tiktok-account-audit/references/report-template.md"]
+  },
+  {
+    "id": "account-content-hook-cta",
+    "owners": ["tiktok-account-audit/references/workflow.md", "tiktok-account-audit/references/report-template.md"]
+  },
+  {
+    "id": "source-ledger-confidence",
+    "owners": ["tiktok-account-audit/references/workflow.md", "tiktok-shop-growth-research/references/principles.md"]
+  },
+  {
+    "id": "derived-launch-process-seven-day-actions",
+    "owners": ["tiktok-account-audit/references/report-template.md"]
+  },
+  {
+    "id": "no-unpublished-account-tools",
+    "owners": ["tiktok-account-audit/SKILL.md", "README.md"]
+  },
+  {
+    "id": "browser-creator-caption-path",
+    "owners": ["tiktok-account-audit/SKILL.md", "tiktok-account-audit/references/workflow.md"]
+  },
+  {
+    "id": "account-category-gap-matrix",
+    "owners": ["tiktok-growth-plan/references/workflow.md", "tiktok-growth-plan/references/report-template.md"]
+  },
+  {
+    "id": "retain-pause-add",
+    "owners": ["tiktok-growth-plan/references/workflow.md"]
+  },
+  {
+    "id": "product-content-creator-paths",
+    "owners": ["tiktok-growth-plan/references/workflow.md"]
+  },
+  {
+    "id": "thirty-day-phases",
+    "owners": ["tiktok-growth-plan/references/workflow.md", "tiktok-growth-plan/references/report-template.md"]
+  },
+  {
+    "id": "capacity-safe-test-volume",
+    "owners": ["tiktok-growth-plan/references/workflow.md"]
+  },
+  {
+    "id": "six-openai-yaml",
+    "owners": ["amazon-tiktok-signal/agents/openai.yaml", "kolsprite-search/agents/openai.yaml", "kolsprite-caption/agents/openai.yaml", "tiktok-shop-growth-research/agents/openai.yaml", "tiktok-account-audit/agents/openai.yaml", "tiktok-growth-plan/agents/openai.yaml"]
+  },
+  {
+    "id": "three-level-attribution",
+    "owners": ["README.md", "ATTRIBUTIONS.md", "third_party/aronhy-tiktok-agent-skills-LICENSE"]
+  }
+]

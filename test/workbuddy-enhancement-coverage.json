@@ -1,0 +1,30 @@
+[
+  {
+    "id": "partner-prompt-routing",
+    "owners": ["test/routing-cases.json", "test/skill-contract.test.js"]
+  },
+  {
+    "id": "run-evidence-display",
+    "owners": [
+      "tiktok-shop-growth-research/references/evidence-display.md",
+      "tiktok-account-audit/references/report-template.md",
+      "tiktok-growth-plan/references/report-template.md"
+    ]
+  },
+  {
+    "id": "dated-known-issues-ledger",
+    "owners": [
+      "tiktok-shop-growth-research/references/known-issues.md",
+      "kolsprite-search/SKILL.md",
+      "kolsprite-caption/SKILL.md",
+      "tiktok-shop-growth-research/SKILL.md"
+    ]
+  },
+  {
+    "id": "conditional-video-first-creator-fallback",
+    "owners": [
+      "tiktok-shop-growth-research/references/creator-partnership.md",
+      "tiktok-shop-growth-research/references/known-issues.md"
+    ]
+  }
+]

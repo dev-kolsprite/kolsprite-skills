@@ -1,491 +1,73 @@
 # AGENTS.md
 
-# KOLSprite Skills Agent Instructions
+## Repository purpose
 
-## Overview
+This repository contains the official Skills for KOLSprite's public unified MCP service. It should make tool selection automatic while keeping business conclusions traceable to current MCP evidence.
 
-This repository contains official AI Agent Skills for the KOLSprite MCP ecosystem.
+## Skill ownership
 
-KOLSprite Skills enables AI agents such as Claude Code, OpenAI Codex, Cursor, and other MCP-compatible agents to automatically use KOLSprite capabilities through natural language.
+- `kolsprite-search`: one-step creator, product, video, or shop lookup and filtering.
+- `kolsprite-caption`: extraction or analysis of a supplied TikTok video's subtitles, speech, script, hook, selling points, or CTA.
+- `amazon-tiktok-signal`: Amazon ASIN-specific TikTok head-signal, recent-direction, commerce, and bounded multi-ASIN comparison using `asin_video_search`.
+- `tiktok-shop-growth-research`: multi-step TikTok Shop decisions involving opportunity evaluation, cold start, winning content, creator selection, or competitor/growth research.
+- `tiktok-account-audit`: diagnosis of one or more verified public TikTok profile URLs, their visible content patterns, commerce signals, and reusable operating logic.
+- `tiktok-growth-plan`: orchestration of a completed account audit and category/opportunity study into account-category fit and a 30-day roadmap.
 
-The agent should understand user intent and automatically select the appropriate skill and MCP capability.
+Keep these trigger boundaries discriminating. Do not add a second Skill that claims the same primary decision intent without documenting precedence.
 
-Users should not need to manually specify:
+`amazon-tiktok-signal` owns the ASIN-specific evidence and comparison decision. `tiktok-shop-growth-research` owns a broader follow-up about cold start, content strategy, creator programs, or category entry; it may use an already completed ASIN signal as one input without relabelling generic keyword results as ASIN-specific evidence.
 
-- which skill to use
-- which MCP server to call
-- which tool to select
+## Public capability boundary
 
----
+All Skills depend on one Streamable HTTP MCP service at `https://mcp.kolsprite.com/mcp`. Functional routing among search, caption, account, and growth tasks must not be represented as separate MCP endpoints or separate service installations.
 
-# Installation
+Only document and route to KOLSprite tools that exist in the repository's release validation allowlist. Before publishing a package, verify every listed tool against the unified MCP `tools/list`. A Skill must still stop cleanly when a required tool is absent at runtime. Do not present internal or private capabilities as public.
 
-When KOLSprite Skills are required but not installed in the current agent environment, install them using:
+Tools required by the `0.4.0` release contract are:
 
-```bash
-npx skills add dev-kolsprite/kolsprite-skills
-```
+- `creator_search`
+- `product_search`
+- `video_search`
+- `shop_search`
+- `caption_extract_url`
+- `asin_video_search`
 
-After installation:
+MCP uses KOLSprite points, and different executed tools/operations may consume different amounts. Route to the smallest useful call plan, reuse collected evidence, and do not hardcode point prices unless a current official contract is intentionally versioned in this repository. Skill selection alone is not a charge record; report point usage only from an actual MCP/host usage result.
 
-1. Reload available skills.
-2. Enable KOLSprite Skills.
-3. Automatically route user requests to the correct skill.
-4. Use MCP tools according to the user's intent.
+When a requested conclusion requires unavailable detail, attribution, cost, margin, inventory, conversion, or audience data, state the boundary and narrow the answer instead of inventing a proxy. `amazon-tiktok-signal` may calculate a clearly labelled rough recent direction from the representative top-play sample returned by `asin_video_search`; it must preserve the sample, sort, period, relevance, and client-calculation boundary.
 
-Do not ask users to manually copy SKILL.md files.
+Account Skills may use a capable browser for public TikTok pages, but browser observations must remain separate from MCP evidence and stop at login, CAPTCHA, anti-bot, regional, or access restrictions. Do not promise unpublished `creator_profile` or `creator_videos` tools.
 
----
+## Skill authoring rules
 
-# Available Skills
+- Use hyphen-case for Skill folder names and frontmatter `name` values.
+- Keep `SKILL.md` focused on discovery, routing, essential constraints, and reference selection.
+- Put substantial scenario logic and maintained judgment definitions in `references/`.
+- Separate MCP observations, client calculations, external facts, and business judgments.
+- Preserve metric definitions, periods, page boundaries, filters, and sort order.
+- Empty results mean no records were retrieved under the query, not proof that no market activity exists.
+- Ask only for missing inputs that materially change scope or conclusion.
+- Never ask whether KOLSprite MCP should be used when the Skill already applies.
 
-## 1. kolsprite-search
+## Links, preference memory, and product hand-offs
 
-Purpose:
+- Use an object URL only when it is returned by MCP or follows a verified public KOLSprite URL contract. Never fabricate a KOLSprite detail URL.
+- Treat preference memory as optional client capability. Ask before saving a durable preference; do not store secrets, private business data, or one-off task details.
+- Solve the current request before mentioning another KOLSprite workflow or product surface. A hand-off must be directly relevant, optional, accurate, and limited to one concise next step.
 
-Search and analyze TikTok ecosystem data through KOLSprite Universal MCP.
+The growth-research Skill's shared conventions are authoritative for detailed behavior.
 
-Use this skill for:
+## Upstream attribution
 
-- TikTok creator search
-- TikTok influencer discovery
-- TikTok video search
-- TikTok product search
-- TikTok shop search
-- TikTok commerce analysis
+Work adapted from external contributors must be recorded in `ATTRIBUTIONS.md`, retain the applicable upstream license under `third_party/`, and be described in README contributor material. Do not repeat attribution in every runtime result. When updating an adapted workflow, preserve the upstream source/commit record and distinguish KOLSprite-specific changes.
 
----
+## Repository maintenance
 
-## 2. kolsprite-caption
+When adding or changing a Skill:
 
-Purpose:
-
-Extract subtitles and transcripts from TikTok videos through KOLSprite Caption MCP.
-
-Use this skill for:
-
-- TikTok subtitle extraction
-- Video transcript extraction
-- Spoken text extraction
-- Video text recognition
-
----
-
-# Automatic Skill Selection Rules
-
-## Creator / Influencer Queries
-
-Activate:
-
-```
-kolsprite-search
-```
-
-when users ask:
-
-Chinese:
-
-- 查询达人
-- 查达人
-- 搜达人
-- 找达人
-- TikTok达人
-- TikTok博主
-- 网红
-- KOL
-- 达人数据
-- 达人分析
-- 达人排行榜
-- 达人粉丝
-- 达人带货
-- 达人销量
-- 达人GMV
-
-English:
-
-- search creators
-- find influencers
-- TikTok creators
-- influencer analytics
-- creator insights
-- KOL research
-
-Examples:
-
-User:
-
-```
-查询美国美妆达人
-```
-
-Action:
-
-```
-Use kolsprite-search
-→ Universal MCP
-→ Creator query
-```
-
----
-
-# Video Queries
-
-Activate:
-
-```
-kolsprite-search
-```
-
-when users ask:
-
-Chinese:
-
-- 查询视频
-- 搜视频
-- 热门视频
-- 爆款视频
-- 视频趋势
-- 视频数据
-- 视频分析
-
-English:
-
-- search videos
-- viral videos
-- trending TikTok videos
-- video analytics
-
-Examples:
-
-User:
-
-```
-查最近热门的美妆视频
-```
-
-Action:
-
-```
-Use kolsprite-search
-→ Universal MCP
-→ Video query
-```
-
----
-
-# Product Queries
-
-Activate:
-
-```
-kolsprite-search
-```
-
-when users ask:
-
-Chinese:
-
-- 查询商品
-- 搜商品
-- 热卖商品
-- 爆款商品
-- 商品销量
-- 商品分析
-- TikTok商品
-
-English:
-
-- search products
-- trending products
-- product analytics
-- best selling products
-
-Examples:
-
-User:
-
-```
-查询TikTok美国市场热卖护肤商品
-```
-
-Action:
-
-```
-Use kolsprite-search
-→ Universal MCP
-→ Product query
-```
-
----
-
-# Shop Queries
-
-Activate:
-
-```
-kolsprite-search
-```
-
-when users ask:
-
-Chinese:
-
-- 查询店铺
-- 查店铺
-- 搜店铺
-- TikTok Shop
-- 商家
-- 店铺销量
-- 店铺分析
-
-English:
-
-- search shops
-- TikTok Shop
-- seller analytics
-- store research
-
-Examples:
-
-User:
-
-```
-查询美国TikTok Shop热门店铺
-```
-
-Action:
-
-```
-Use kolsprite-search
-→ Universal MCP
-→ Shop query
-```
-
----
-
-# Subtitle / Transcript Queries
-
-Activate:
-
-```
-kolsprite-caption
-```
-
-when users ask:
-
-Chinese:
-
-- 提取字幕
-- 获取字幕
-- 解析字幕
-- 提取视频文字
-- 视频转文字
-- 获取视频文案
-- 视频Transcript
-
-English:
-
-- extract subtitles
-- get transcript
-- video transcript
-- extract captions
-- spoken text extraction
-
-Examples:
-
-User:
-
-```
-提取这个TikTok视频字幕
-```
-
-Action:
-
-```
-Use kolsprite-caption
-→ Caption MCP
-→ Extract transcript
-```
-
----
-
-# Multi Capability Requests
-
-If a user request requires multiple data sources, use multiple skills.
-
-Examples:
-
-## Find creators promoting a product
-
-User:
-
-```
-找推广这个商品的TikTok达人
-```
-
-Actions:
-
-```
-kolsprite-search
-→ Product search
-
-kolsprite-search
-→ Creator search
-```
-
----
-
-## Analyze shop products and videos
-
-User:
-
-```
-分析这个TikTok Shop店铺有哪些爆款视频
-```
-
-Actions:
-
-```
-kolsprite-search
-→ Shop search
-
-kolsprite-search
-→ Video search
-```
-
----
-
-# MCP Usage Rules
-
-When using KOLSprite MCP:
-
-1. Always use MCP results as the source of truth.
-2. Never invent TikTok data.
-3. Never create fake creator statistics.
-4. Never guess product sales numbers.
-5. Clearly state when no matching data is returned.
-
----
-
-# User Communication Rules
-
-When information is missing:
-
-Ask only for required information.
-
-Good:
-
-```
-请提供 TikTok 视频链接。
-```
-
-Good:
-
-```
-请指定目标国家或地区。
-```
-
-Bad:
-
-```
-是否需要调用MCP？
-```
-
-Bad:
-
-```
-是否使用KOLSprite？
-```
-
-The MCP selection should be automatic.
-
----
-
-# Agent Behavior
-
-The agent should behave as follows:
-
-User:
-
-```
-查询美国健身达人
-```
-
-Agent:
-
-```
-Recognize creator query.
-Load kolsprite-search.
-Call Universal MCP.
-Return results.
-```
-
----
-
-User:
-
-```
-提取这个视频字幕 https://www.tiktok.com/xxx
-```
-
-Agent:
-
-```
-Recognize subtitle extraction request.
-Load kolsprite-caption.
-Call Caption MCP.
-Return transcript.
-```
-
----
-
-# Repository Structure
-
-Expected structure:
-
-```
-kolsprite-skills/
-│
-├── AGENTS.md
-├── README.md
-│
-├── kolsprite-search/
-│   └── SKILL.md
-│
-└── kolsprite-caption/
-    └── SKILL.md
-```
-
----
-
-# Adding New Skills
-
-When adding a new skill:
-
-1. Create a new directory.
-2. Add SKILL.md.
-3. Add trigger rules.
-4. Update README.md.
-5. Update this AGENTS.md file.
-
-Example:
-
-```
-kolsprite-new-feature/
-└── SKILL.md
-```
-
----
-
-# Goal
-
-The goal of KOLSprite Skills is to provide a zero-configuration AI experience:
-
-Users describe what they need naturally.
-
-The agent automatically:
-
-1. Understands intent.
-2. Selects the correct skill.
-3. Calls the correct MCP.
-4. Returns accurate TikTok intelligence.
+1. Preserve the ownership boundaries above.
+2. Update `README.md`, this file, and the routing fixtures when the public contract changes.
+3. Add or update references only when they materially change decisions.
+4. Run `npm test` and the available Skill frontmatter validator.
+5. Keep `agents/openai.yaml` display text, default prompt, dependencies, and invocation policy consistent with the Skill.
+6. Keep the MCP dependency at the approved unified URL and never include or modify a real secret. Change the URL or authentication contract only after explicit product direction and official-document verification.

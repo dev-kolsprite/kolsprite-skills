@@ -1,0 +1,15 @@
+interface:
+  display_name: "TikTok 账号诊断"
+  short_description: "基于公开账号证据诊断内容、带货表现、运营逻辑与增长机会"
+  default_prompt: "使用 $tiktok-account-audit 分析这个公开 TikTok 账号的运营逻辑，并给出可复用流程和未来 7 天行动。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "kolsprite"
+      description: "KOLSprite unified TikTok data and caption MCP"
+      transport: "streamable_http"
+      url: "https://mcp.kolsprite.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,15 @@
+interface:
+  display_name: "TikTok Shop 增长研究"
+  short_description: "用商品、店铺、视频、达人和字幕证据完成 TikTok Shop 增长决策"
+  default_prompt: "使用 $tiktok-shop-growth-research 研究这个 TikTok Shop 机会并给出可验证的行动方案。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "kolsprite"
+      description: "KOLSprite unified TikTok data and caption MCP"
+      transport: "streamable_http"
+      url: "https://mcp.kolsprite.com/mcp"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "direct-creator-search",
+    "request": "查询美国美妆达人，粉丝 10 万到 50 万",
+    "primarySkill": "kolsprite-search",
+    "reason": "A bounded creator lookup needs one direct KOLSprite data-search call."
+  },
+  {
+    "id": "direct-product-search",
+    "request": "查找美国近 30 天销量高于 1000 的露营灯",
+    "primarySkill": "kolsprite-search",
+    "reason": "The user specified a direct product filter rather than a business decision."
+  },
+  {
+    "id": "caption-analysis",
+    "request": "分析这个 TikTok 视频的口播 Hook 和 CTA：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "reason": "A supplied video and spoken-content intent belong to the caption tool on the unified KOLSprite MCP."
+  },
+  {
+    "id": "bare-video-url",
+    "request": "https://www.tiktok.com/@example/video/123",
+    "primarySkill": null,
+    "reason": "A bare URL does not reveal whether the user wants caption extraction or another action."
+  },
+  {
+    "id": "category-opportunity",
+    "request": "美国户外露营用品现在还有什么细分类目值得测试？",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "The request asks for a multi-step opportunity decision."
+  },
+  {
+    "id": "cold-start",
+    "request": "这个便携淋浴新品在 TikTok Shop 应该怎么冷启动？",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "Cold start combines product, content, and creator evidence."
+  },
+  {
+    "id": "winning-content",
+    "request": "找出这类商品跑出来的视频，并给我三套达人拍摄 Brief",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "A multi-video strategy and deliverable is broader than caption extraction."
+  },
+  {
+    "id": "creator-cohort",
+    "request": "为新品挑第一批 30 个达人，说明分组和测试逻辑",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "The user wants a creator program decision, not a direct lookup."
+  },
+  {
+    "id": "competitor-diagnosis",
+    "request": "研究这个竞品店铺为什么卖得好，哪些做法可以复用？",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "Competitor diagnosis needs cross-entity evidence and interpretation."
+  },
+  {
+    "id": "public-account-audit",
+    "request": "分析这个公开 TikTok 账号的内容支柱、运营逻辑和未来 7 天动作：https://www.tiktok.com/@example",
+    "primarySkill": "tiktok-account-audit",
+    "reason": "A canonical public profile URL and account-diagnosis intent belong to the account audit."
+  },
+  {
+    "id": "account-only-content-analysis",
+    "request": "对比这两个 TikTok 账号最近内容，找出可复用的 Hook 和 CTA。",
+    "primarySkill": "tiktok-account-audit",
+    "reason": "The primary decision is account/content diagnosis rather than category entry."
+  },
+  {
+    "id": "account-category-growth-plan",
+    "request": "分析这个账号是否适合做美国宠物用品，并生成 30 天增长计划：https://www.tiktok.com/@example",
+    "primarySkill": "tiktok-growth-plan",
+    "reason": "Account-category fit plus a 30-day roadmap requires the orchestration Skill."
+  },
+  {
+    "id": "category-without-account",
+    "request": "研究美国宠物用品类目并给出进入建议。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "A category decision without an account is growth research, not an account growth plan."
+  },
+  {
+    "id": "workbuddy-selection-loop",
+    "request": "研究美国美妆里 30–50 美元、评分较高的商品，串联店铺、视频和达人证据，给我未来 7 天的验证方案。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "A cross-object selection decision plus a seven-day validation plan belongs to growth research."
+  },
+  {
+    "id": "workbuddy-new-product-cold-start",
+    "request": "我要上架一个美妆新品，研究美国市场价格、卖点、竞品、内容和首批寄样达人，给出最小冷启动方案。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "The request combines market, product, content, and creator evidence into one cold-start decision."
+  },
+  {
+    "id": "workbuddy-benchmark-shop-model",
+    "request": "拆解美国美妆里卖得好的五家店铺，比较价格带、选品结构、主推商品和带货打法，判断什么模型值得借鉴。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "The user wants a cross-shop operating-model judgment rather than a direct shop list."
+  },
+  {
+    "id": "workbuddy-competitor-account-audit",
+    "request": "分析这个公开 TikTok 账号的内容支柱、代表视频、可复用结构和未来七天动作：https://www.tiktok.com/@example",
+    "primarySkill": "tiktok-account-audit",
+    "reason": "A canonical public profile plus account-level diagnosis belongs to the account audit."
+  },
+  {
+    "id": "workbuddy-category-entry",
+    "request": "研究美国宠物用品的商品、店铺、内容和达人供给，判断是否值得进入，并给出差异化方向和三个验证动作。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "A category entry decision needs compatible cross-layer evidence and validation criteria."
+  },
+  {
+    "id": "workbuddy-account-category-thirty-day-plan",
+    "request": "分析这个美妆账号是否适合转向美国家居类目，并制定定位、内容和达人合作的 30 天计划：https://www.tiktok.com/@example",
+    "primarySkill": "tiktok-growth-plan",
+    "reason": "Account-category fit and a thirty-day roadmap require the orchestration Skill."
+  },
+  {
+    "id": "workbuddy-seeding-creator-program",
+    "request": "为美国美妆新品挑 20 位 1–10 万粉的寄样达人，按合作优先级分组，并说明建联顺序和晋级标准。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "Prioritization, cohort design, and promotion criteria make this a creator-program decision rather than a direct lookup."
+  },
+  {
+    "id": "workbuddy-breakout-product-study",
+    "request": "找出美国美妆近期增长较快的十个候选商品，分析卖点、价格带和内容打法的共同信号，并告诉我先验证哪几个。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "Common-pattern analysis and a validation priority require multi-step opportunity research."
+  },
+  {
+    "id": "workbuddy-caption-to-original-script",
+    "request": "提取并翻译这个视频的字幕，拆解 Hook、卖点、证明和 CTA，再按结构生成一版不直接搬运的新脚本：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "reason": "One supplied video's spoken content and a grounded rewrite belong to the caption Skill."
+  },
+  {
+    "id": "workbuddy-winning-video-formula",
+    "request": "查询美国美妆带货表现较好的视频，比较多条样本后提炼可测试的内容结构。",
+    "primarySkill": "tiktok-shop-growth-research",
+    "reason": "Multi-video comparison and testable content synthesis are broader than a single caption extraction."
+  },
+  {
+    "id": "workbuddy-direct-creator-lookup",
+    "request": "查询美国美妆达人，粉丝 1–10 万，返回前 20 个账号及当前可用数据。",
+    "primarySkill": "kolsprite-search",
+    "reason": "A bounded creator lookup without cohort strategy belongs to the direct search Skill."
+  },
+  {
+    "id": "workbuddy-direct-shop-lookup",
+    "request": "查询美国宠物用品店铺，评分 4.5 以上，先给我第一页。",
+    "primarySkill": "kolsprite-search",
+    "reason": "A page-bounded shop filter is a direct lookup, not a shop operating-model diagnosis."
+  },
+  {
+    "id": "workbuddy-amazon-asin-signal",
+    "request": "分析这个美国 Amazon ASIN 的 TikTok 站外热度，并粗略比较最近 30 天和上一个 30 天：B0XXXXXXXX。",
+    "primarySkill": "amazon-tiktok-signal",
+    "reason": "An Amazon ASIN plus TikTok offsite heat and recent-direction intent belongs to the ASIN signal Skill."
+  },
+  {
+    "id": "amazon-asin-comparison",
+    "request": "对比这三个 Amazon ASIN，告诉我哪个商品的 TikTok 相关内容和带货信号更强。",
+    "primarySkill": "amazon-tiktok-signal",
+    "reason": "A bounded multi-ASIN TikTok signal comparison is owned by the ASIN signal Skill."
+  },
+  {
+    "id": "amazon-asin-details-only",
+    "request": "帮我查一下这个 Amazon ASIN 的价格、BSR 和评论数。",
+    "primarySkill": null,
+    "reason": "Amazon Listing details without TikTok signal intent are outside the KOLSprite TikTok Skills package."
+  }
+]

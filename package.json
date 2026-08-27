@@ -1,0 +1,13 @@
+{
+  "name": "kolsprite-skills",
+  "version": "0.4.0",
+  "private": true,
+  "description": "Validation contract for the public KOLSprite Skills repository.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/skill-contract.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
