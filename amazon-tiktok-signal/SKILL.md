@@ -1,11 +1,24 @@
 ---
 name: amazon-tiktok-signal
-description: Analyze current TikTok offsite heat, recent-month momentum, and commercial signals for one or more Amazon ASINs with KOLSprite unified MCP. Use when an Amazon seller provides ASINs or Listings and asks whether they have TikTok signals, how the latest 30 days compare with the prior 30 days, or which ASIN has the stronger TikTok opportunity. Do not use for generic TikTok research, exact Amazon sales attribution, or future-sales prediction.
+description: Analyze current TikTok offsite heat, recent-month momentum, and commercial signals for one or more Amazon ASINs with compatible KOLSprite MCP tools. Use when an Amazon seller provides ASINs or Listings and asks whether they have TikTok signals, how the latest 30 days compare with the prior 30 days, or which ASIN has the stronger TikTok opportunity. Do not use for generic TikTok research, exact Amazon sales attribution, or future-sales prediction.
 ---
 
 # Amazon TikTok Signal
 
-Turn ASIN-related TikTok video candidates into a decision-ready signal report. Use KOLSprite unified MCP automatically; do not ask whether to call it after this Skill applies.
+Turn ASIN-related TikTok video candidates into a decision-ready signal report. Use the active MCP connection that exposes the compatible KOLSprite tool contract automatically; do not ask whether to call it after this Skill applies.
+
+## Compatible MCP routing
+
+- Prefer the SellerSpace Yunya unified MCP when it is available and authenticated.
+- Support direct business tools plus current and legacy Yunya facade entrypoints.
+- In direct mode, resolve and call `asin_analysis_video` by its semantic business name.
+- In Yunya facade mode, if the business tool is not visible at the host's top level, make at most one host-level discovery attempt and prefer the product-specific `yunya_search_kolsprite_tools`. Call it once with the ASIN-video-analysis intent; use the exact internal tool name and complete input schema it returns, then invoke that tool through `call_read_tool`.
+- If the product-specific entrypoint is unavailable but the legacy generic `yunya__search_tools` is discoverable, use it with provider `kolsprite`, operation `read`, and the same intent. Do not prefer the generic entrypoint when the product-specific one is available.
+- Do not guess a facade namespace, internal tool name, wrapper, or arguments. Reuse the discovered name and schema for the run.
+- A host-level miss for `asin_analysis_video` does not prove that the internal business tool is absent. Only report a missing business dependency after direct exposure and the available current or legacy facade lookup fail. If neither facade entrypoint can be discovered, report a connector-discovery failure and do not switch to an unrelated fallback service.
+- A standalone KOLSprite MCP remains compatible only when it exposes the same required semantic tool names, input schemas, and response shapes.
+- If both connections are enabled, use one connection for the entire run, prefer Yunya, and never duplicate a paid call across both services.
+- Treat an absent or schema-incompatible `asin_analysis_video` as a missing dependency and stop as specified below.
 
 ## Inputs
 
@@ -24,7 +37,7 @@ Do not automatically analyze more than three ASINs in one run. One ASIN requires
 
 ## Retrieve and normalize MCP evidence
 
-1. Call `asin_video_search` with `asin`, `market`, `region`, `page_num`, and `page_size: 20`.
+1. Call `asin_analysis_video` with `asin`, `market`, `region`, `page_num`, and `page_size: 20`.
 2. Parse the text JSON in the MCP result. Support both an older array response and the paginated form:
 
    ```text
@@ -53,7 +66,7 @@ The unified tool contract supplies videos published within roughly the latest si
 - Fewer than three valid same-product-family/highly-similar videos means **insufficient reliable signal**. Show the best evidence and exclusions, but do not force a heat grade.
 - A latest-30-days versus prior-30-days comparison with fewer than three valid cohort videos in total is unavailable. With a small or one-sided cohort, allow only a clearly labelled rough observation rather than a formal trend grade.
 - Stop the affected chain on authentication, entitlement, insufficient-point, rate-limit, schema, or repeated server errors. Do not change credentials or hide an interrupted collection.
-- If `asin_video_search` is absent from the current unified MCP tool list, report that the required tool is unavailable and stop instead of substituting `video_search` or inventing an ASIN mapping.
+- If `asin_analysis_video` is absent from the current unified MCP tool list, report that the required tool is unavailable and stop instead of substituting `video_search` or inventing an ASIN mapping.
 - Do not fetch discretionary extra pages beyond the selected mode. Ask before expanding a quick comparison into a full comparison when the additional calls materially increase cost or latency.
 - Point use follows actual executed MCP calls. Do not hardcode point prices or report a deduction unless the MCP or host exposes it. A failed, empty, or insufficient-evidence result is not proof that an account was charged.
 

@@ -11,7 +11,7 @@ Useful constraints when volunteered: price band, fulfillment mode, target custom
 ## Research flow
 
 1. Preserve the user's original category phrase, target market, synonyms, exclusions, and optional price band. Do not silently replace a broad category with one subcategory.
-2. Run a small `product_search` mapping query. Use returned product titles plus `catId`, `catName`, and localized category names to establish candidate mappings. Adopt a category ID only when both classification and returned products support it; otherwise label later results a keyword sample.
+2. When a category filter is needed, call `product_category_list`, recursively match the user's Chinese or English phrase to the returned tree, and preserve the full returned `category` path. Confirm the mapping with a small `product_search`; adopt it only when both the catalogue label and returned products support it. If no safe mapping exists, omit the category filter and label later results a keyword sample.
 3. Expand into a small set of precise synonyms and adjacent terms. Keep adopted/excluded mappings and unresolved ambiguity visible.
 4. Call `product_search` for the useful terms or confirmed category IDs with material price, rating, sales, growth, listing-date, fulfillment, or logistics filters.
 5. Classify returned products as true matches, adjacent alternatives, accessories/tools, or irrelevant contamination.

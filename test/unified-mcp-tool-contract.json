@@ -1,14 +1,90 @@
 {
-  "endpoint": "https://mcp.kolsprite.com/mcp",
-  "status": "release_ready",
-  "preparedAt": "2026-08-26",
-  "source": "KOLSprite Skills 0.4.0 release contract; verify against MCP tools/list during deployment",
+  "primaryEndpoint": {
+    "name": "yunyamcp",
+    "url": "https://www.sellerspace.com/yunya_mcp/",
+    "authHeader": "x-api-key",
+    "status": "facade_discovery_fixed_doubao_e2e_verified_2026-09-15",
+    "verificationBasis": "authenticated_mcp_metadata_validation_plus_published_doubao_end_to_end_verification"
+  },
+  "compatibleEndpoints": [
+    {
+      "name": "kolsprite",
+      "url": "https://mcp.kolsprite.com/mcp",
+      "authHeader": "secret-key",
+      "status": "verified_2026-09-04"
+    },
+    {
+      "name": "sellersprite-mcp",
+      "url": "https://mcp.sellersprite.com/mcp",
+      "authHeader": "secret-key",
+      "status": "verified_2026-09-04"
+    }
+  ],
+  "exposureModes": {
+    "yunya": {
+      "type": "facade_dynamic_catalog",
+      "preferredProductSearchEntrypoints": [
+        "yunya_search_sellersprite_tools",
+        "yunya_search_kolsprite_tools",
+        "yunya_search_sellerspace_tools"
+      ],
+      "legacyGenericSearchEntrypoint": "yunya__search_tools",
+      "topLevelFacadeTools": [
+        "yunya_search_sellersprite_tools",
+        "yunya_search_kolsprite_tools",
+        "yunya_search_sellerspace_tools",
+        "yunya__search_tools",
+        "call_read_tool",
+        "prepare_write_tool"
+      ],
+      "internalProviders": [
+        "sellersprite",
+        "kolsprite",
+        "sellerspace"
+      ],
+      "preferredReadSequence": [
+        "matching_product_search_entrypoint",
+        "call_read_tool"
+      ],
+      "legacyReadSequence": [
+        "yunya__search_tools(provider=<product>,operation=read)",
+        "call_read_tool"
+      ],
+      "publishedDoubaoVerification": "2026-09-15: the product-specific facade discovery fix passed end-to-end verification in published Doubao Work; yunya_search_kolsprite_tools discovered kolsprite__caption_extract_url with its complete schema and call_read_tool completed the read"
+    },
+    "compatibleStandalone": {
+      "type": "direct_business_tools",
+      "resolution": "semantic business name plus live input schema"
+    }
+  },
+  "preparedAt": "2026-09-15",
+  "source": "KOLSprite Skills 0.4.2 compatibility contract; underlying tools verified against authenticated MCP metadata on 2026-09-04; product-specific facade discovery fix passed published Doubao Work end-to-end verification on 2026-09-15; runtime metadata remains authoritative for entitlement and future schema drift",
+  "verifiedFusionCoreTools": [
+    "asin_detail",
+    "asin_analysis_video",
+    "product_search",
+    "video_search",
+    "creator_search",
+    "caption_extract_url"
+  ],
   "tools": [
+    "asin_detail",
+    "asin_prediction",
+    "review",
+    "asin_competitor",
+    "traffic_keyword_stat",
+    "traffic_keyword",
+    "keyword_research_trends",
+    "competitor_lookup",
+    "market_research_statistics",
+    "asin_sales_trend",
+    "creator_category_list",
+    "product_category_list",
     "creator_search",
     "product_search",
     "shop_search",
     "video_search",
     "caption_extract_url",
-    "asin_video_search"
+    "asin_analysis_video"
   ]
 }

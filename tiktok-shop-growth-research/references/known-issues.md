@@ -16,7 +16,7 @@ This is a dated operational ledger, not a permanent description of the MCP contr
 ### KSI-001 — Optional sales sorting reported to cause server errors
 
 - **Affected tools:** `product_search`, `shop_search`
-- **Observed:** 2026-08-18 in a WorkBuddy partner field run.
+- **Observed:** 2026-08-18 in a cross-client compatibility test.
 - **Status:** Historical observation; not verified as current by this repository.
 - **Trigger:** A current call fails with a server error only when an optional sales-related sort is supplied.
 - **Action:** Record the failed sort, retry once without that optional sort when the unsorted result still answers the task, and sort locally only inside the disclosed collected sample. If the retry fails, stop the affected chain and mark it incomplete.
@@ -26,7 +26,7 @@ This is a dated operational ledger, not a permanent description of the MCP contr
 ### KSI-002 — Narrow creator keyword searches reported to repeat or lose category relevance
 
 - **Affected tool:** `creator_search`
-- **Observed:** 2026-08-18 in a WorkBuddy partner field run using a category keyword plus a narrow follower band.
+- **Observed:** 2026-08-18 in a cross-client compatibility test using a category keyword plus a narrow follower band.
 - **Status:** Historical observation; not verified as current by this repository.
 - **Trigger:** Different relevant keywords return the same stable creator IDs/pages, or the returned creators are materially unrelated to the requested category after one precise query and one disclosed synonym.
 - **Action:** Preserve the direct-query evidence, label it degraded, and use the conditional video-first creator discovery path in [creator-partnership.md](creator-partnership.md) when creator discovery remains necessary.
@@ -36,7 +36,7 @@ This is a dated operational ledger, not a permanent description of the MCP contr
 ### KSI-003 — Creator category inputs reported to return empty results
 
 - **Affected tool:** `creator_search`
-- **Observed:** 2026-08-18 in a WorkBuddy partner field run using an English category label.
+- **Observed:** 2026-08-18 in a cross-client compatibility test using an English category label.
 - **Status:** Historical observation; not verified as current by this repository.
 - **Trigger:** A schema-valid category input returns no rows while adjacent product/video evidence shows that the normalized category exists.
 - **Action:** Check category normalization and live accepted values, try one close synonym or verified category ID when supported, then report the empty direct result. Use video-first discovery only as a bounded alternative sample, not proof of all category creators.
@@ -46,7 +46,7 @@ This is a dated operational ledger, not a permanent description of the MCP contr
 ### KSI-004 — TikTok caption URL variants have client- and time-dependent compatibility
 
 - **Affected tool:** `caption_extract_url`
-- **Observed:** 2026-08-18 in a WorkBuddy partner field run; both public long and TikTok-owned short links reportedly succeeded in that environment.
+- **Observed:** 2026-08-18 in a cross-client compatibility test; both public long and TikTok-owned short links reportedly succeeded in that environment.
 - **Status:** Historical compatibility observation; not a guarantee for every current client or video.
 - **Trigger:** A current public TikTok video URL is rejected or returns no caption.
 - **Action:** Preserve the original URL and error, distinguish unsupported URL from unavailable caption/permission, and ask for a TikTok App share link only when a different public URL form is the smallest useful retry. Never reconstruct missing speech.

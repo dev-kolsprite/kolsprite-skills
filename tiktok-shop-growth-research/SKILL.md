@@ -5,7 +5,20 @@ description: Conduct an evidence-backed TikTok Shop business study with current 
 
 # TikTok Shop Growth Research
 
-Turn a seller's decision into a bounded recommendation by combining data-search and caption tools exposed through the unified KOLSprite MCP. Use MCP automatically; do not ask whether to use it.
+Turn a seller's decision into a bounded recommendation by combining data-search and caption tools exposed through one active connection with the compatible KOLSprite tool contract. Use MCP automatically; do not ask whether to use it.
+
+## Compatible MCP routing
+
+- Prefer the SellerSpace Yunya unified MCP when it is available and authenticated.
+- Support direct business tools plus current and legacy Yunya facade entrypoints.
+- In direct mode, resolve each required research tool by its semantic business name.
+- In Yunya facade mode, when a required business tool is not visible at the host's top level, make at most one host-level discovery attempt and prefer the product-specific `yunya_search_kolsprite_tools`. Query the smallest tool set needed for the selected workflow; use the exact internal tool names and complete input schemas returned, then invoke them through `call_read_tool`.
+- If the product-specific entrypoint is unavailable but the legacy generic `yunya__search_tools` is discoverable, use it with provider `kolsprite`, operation `read`, and the same query. Do not prefer the generic entrypoint when the product-specific one is available.
+- Do not guess a facade namespace, internal tool name, wrapper, category value, or arguments. Reuse discovered names, schemas, IDs, and evidence throughout the run.
+- A host-level miss for a business tool does not prove internal absence. Only report a missing business dependency after direct exposure and the available current or legacy facade lookup fail. If neither facade entrypoint can be discovered, report a connector-discovery failure and continue only with evidence that supports a clearly bounded partial answer, not an unrelated substitute.
+- A standalone KOLSprite MCP remains compatible only when it exposes the same required semantic tool names, input schemas, and response shapes.
+- If both connections are enabled, use Yunya for all MCP evidence in the run and never duplicate a paid call across both services.
+- If a required tool is absent or schema-incompatible, report the dependency gap and continue only when the remaining evidence supports a clearly bounded partial answer.
 
 ## Required shared references
 
@@ -27,12 +40,15 @@ Choose one primary workflow even when several references contribute. A cold-star
 
 ## Public MCP capability boundary
 
+- Use `creator_category_list` and `product_category_list` only to resolve live accepted category values when a category-filtered call is needed and the current run lacks a verified mapping.
 - Use `product_search`, `shop_search`, `video_search`, and `creator_search` for current structured evidence.
 - Use `caption_extract_url` only for a small, decision-relevant video sample when spoken content matters.
 - Reuse returned `product_id` and `shop_id` in supported downstream filters.
 - Do not assume public detail, historical time-series, advertising, SKU, review-list, livestream, audience-demographic, channel-attribution, or exact product-to-creator relationship tools.
 
-If the unified MCP service is missing or unauthenticated, identify the missing dependency. Continue only with a clearly bounded partial answer when the remaining evidence can still support it.
+For creator-content categories, match the user's Chinese or English label and pass the returned `creator_category_list.value` to `creator_search.category_list`. For commerce categories, recursively traverse `product_category_list`, match `categoryCn`/`categoryEn`, and pass the full returned `category` value to the relevant product, shop, video, or creator product-category filter. Interpret content niche or account positioning as a creator category, and selling, promoted-product, or collaboration direction as a product category. Do not set both category filters merely to hedge an ambiguous phrase such as “beauty creator”; use context, state a material assumption, or ask once only when the choice would materially change the result. Current schemas accept arrays but support one category value per call. Reuse a mapping within the run, never hardcode the catalogue, and fall back to a disclosed keyword-bounded sample when no safe mapping is available. Refer to semantic tool names because MCP hosts may expose different callable prefixes across agents.
+
+If no compatible MCP service is available and authenticated, identify the missing dependency. Continue only with a clearly bounded partial answer when the remaining evidence can still support it.
 
 ## Research control
 

@@ -1,11 +1,24 @@
 ---
 name: kolsprite-caption
-description: Use the caption tool on KOLSprite unified MCP when the user supplies or references a TikTok video and asks to extract, transcribe, translate, summarize, analyze, compare, or rewrite its subtitles, speech, script, hook, selling points, CTA, or content structure. Do not trigger from a bare video URL without a video-content intent.
+description: Use compatible KOLSprite MCP caption tools when the user supplies or references a TikTok video and asks to extract, transcribe, translate, summarize, analyze, compare, or rewrite its subtitles, speech, script, hook, selling points, CTA, or content structure. Do not trigger from a bare video URL without a video-content intent.
 ---
 
 # KOLSprite Caption
 
-Use `caption_extract_url` on the unified KOLSprite MCP automatically for a TikTok video-content request. Do not ask whether to use MCP.
+Access `caption_extract_url` through the active compatible KOLSprite connection, either as a directly exposed business tool or through the Yunya facade. Do not ask whether to use MCP.
+
+## Compatible MCP routing
+
+- Prefer the SellerSpace Yunya unified MCP when it is available and authenticated.
+- Support direct business tools plus current and legacy Yunya facade entrypoints.
+- In direct mode, resolve and call `caption_extract_url` by its semantic business name.
+- In Yunya facade mode, if the business tool is not visible at the host's top level, make at most one host-level discovery attempt and prefer the product-specific `yunya_search_kolsprite_tools`. Call it once with the TikTok-caption-extraction intent; use the exact internal tool name and complete input schema it returns, then invoke that tool through `call_read_tool`.
+- If the product-specific entrypoint is unavailable but the legacy generic `yunya__search_tools` is discoverable, call it once with provider `kolsprite`, operation `read`, and the same caption intent. Do not prefer the generic entrypoint when the product-specific one is available.
+- Do not guess a facade namespace, internal tool name, wrapper, or arguments. Reuse the discovered name and schema for the run.
+- A host-level miss for `caption_extract_url` does not prove that the internal business tool is absent. Only report a missing business dependency after direct exposure and the available current or legacy facade lookup fail. If neither facade entrypoint can be discovered, report a connector-discovery failure and do not switch to Feishu Minutes or another unrelated fallback service.
+- A standalone KOLSprite MCP remains compatible only when it exposes the same required semantic tool name, input schema, and response shape.
+- If both connections are enabled, use one connection for the entire run, prefer Yunya, and never duplicate a paid call across both services.
+- If `caption_extract_url` is absent or schema-incompatible, report the missing dependency instead of substituting another caption tool name.
 
 ## Required input
 

@@ -78,82 +78,88 @@
     "reason": "A category decision without an account is growth research, not an account growth plan."
   },
   {
-    "id": "workbuddy-selection-loop",
+    "id": "cross-client-selection-loop",
     "request": "研究美国美妆里 30–50 美元、评分较高的商品，串联店铺、视频和达人证据，给我未来 7 天的验证方案。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "A cross-object selection decision plus a seven-day validation plan belongs to growth research."
   },
   {
-    "id": "workbuddy-new-product-cold-start",
+    "id": "cross-client-new-product-cold-start",
     "request": "我要上架一个美妆新品，研究美国市场价格、卖点、竞品、内容和首批寄样达人，给出最小冷启动方案。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "The request combines market, product, content, and creator evidence into one cold-start decision."
   },
   {
-    "id": "workbuddy-benchmark-shop-model",
+    "id": "cross-client-benchmark-shop-model",
     "request": "拆解美国美妆里卖得好的五家店铺，比较价格带、选品结构、主推商品和带货打法，判断什么模型值得借鉴。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "The user wants a cross-shop operating-model judgment rather than a direct shop list."
   },
   {
-    "id": "workbuddy-competitor-account-audit",
+    "id": "cross-client-competitor-account-audit",
     "request": "分析这个公开 TikTok 账号的内容支柱、代表视频、可复用结构和未来七天动作：https://www.tiktok.com/@example",
     "primarySkill": "tiktok-account-audit",
     "reason": "A canonical public profile plus account-level diagnosis belongs to the account audit."
   },
   {
-    "id": "workbuddy-category-entry",
+    "id": "cross-client-category-entry",
     "request": "研究美国宠物用品的商品、店铺、内容和达人供给，判断是否值得进入，并给出差异化方向和三个验证动作。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "A category entry decision needs compatible cross-layer evidence and validation criteria."
   },
   {
-    "id": "workbuddy-account-category-thirty-day-plan",
+    "id": "cross-client-account-category-thirty-day-plan",
     "request": "分析这个美妆账号是否适合转向美国家居类目，并制定定位、内容和达人合作的 30 天计划：https://www.tiktok.com/@example",
     "primarySkill": "tiktok-growth-plan",
     "reason": "Account-category fit and a thirty-day roadmap require the orchestration Skill."
   },
   {
-    "id": "workbuddy-seeding-creator-program",
+    "id": "cross-client-seeding-creator-program",
     "request": "为美国美妆新品挑 20 位 1–10 万粉的寄样达人，按合作优先级分组，并说明建联顺序和晋级标准。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "Prioritization, cohort design, and promotion criteria make this a creator-program decision rather than a direct lookup."
   },
   {
-    "id": "workbuddy-breakout-product-study",
+    "id": "cross-client-breakout-product-study",
     "request": "找出美国美妆近期增长较快的十个候选商品，分析卖点、价格带和内容打法的共同信号，并告诉我先验证哪几个。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "Common-pattern analysis and a validation priority require multi-step opportunity research."
   },
   {
-    "id": "workbuddy-caption-to-original-script",
+    "id": "cross-client-caption-to-original-script",
     "request": "提取并翻译这个视频的字幕，拆解 Hook、卖点、证明和 CTA，再按结构生成一版不直接搬运的新脚本：https://www.tiktok.com/@example/video/123",
     "primarySkill": "kolsprite-caption",
     "reason": "One supplied video's spoken content and a grounded rewrite belong to the caption Skill."
   },
   {
-    "id": "workbuddy-winning-video-formula",
+    "id": "cross-client-winning-video-formula",
     "request": "查询美国美妆带货表现较好的视频，比较多条样本后提炼可测试的内容结构。",
     "primarySkill": "tiktok-shop-growth-research",
     "reason": "Multi-video comparison and testable content synthesis are broader than a single caption extraction."
   },
   {
-    "id": "workbuddy-direct-creator-lookup",
+    "id": "cross-client-direct-creator-lookup",
     "request": "查询美国美妆达人，粉丝 1–10 万，返回前 20 个账号及当前可用数据。",
     "primarySkill": "kolsprite-search",
     "reason": "A bounded creator lookup without cohort strategy belongs to the direct search Skill."
   },
   {
-    "id": "workbuddy-direct-shop-lookup",
+    "id": "cross-client-direct-shop-lookup",
     "request": "查询美国宠物用品店铺，评分 4.5 以上，先给我第一页。",
     "primarySkill": "kolsprite-search",
     "reason": "A page-bounded shop filter is a direct lookup, not a shop operating-model diagnosis."
   },
   {
-    "id": "workbuddy-amazon-asin-signal",
+    "id": "cross-client-amazon-asin-signal",
     "request": "分析这个美国 Amazon ASIN 的 TikTok 站外热度，并粗略比较最近 30 天和上一个 30 天：B0XXXXXXXX。",
     "primarySkill": "amazon-tiktok-signal",
     "reason": "An Amazon ASIN plus TikTok offsite heat and recent-direction intent belongs to the ASIN signal Skill."
+  },
+  {
+    "id": "cross-client-amazon-to-tiktok-validation",
+    "request": "这是我的美国 Amazon ASIN，结合亚马逊商品表现和 TikTok 内容、达人证据，判断是否值得做 TikTok，并给出 7–14 天最小测试方案：B0XXXXXXXX。",
+    "primarySkill": "amazon-to-tiktok-validator",
+    "reason": "A single Amazon product plus a cross-platform entry decision and minimum content-and-creator test belongs to the validator."
   },
   {
     "id": "amazon-asin-comparison",
@@ -162,9 +168,73 @@
     "reason": "A bounded multi-ASIN TikTok signal comparison is owned by the ASIN signal Skill."
   },
   {
+    "id": "amazon-listing-minimum-tiktok-test",
+    "request": "分析这个 Amazon Listing 是否适合拓展 TikTok，先告诉我值不值得小测，再给内容角度和首批达人标准。",
+    "primarySkill": "amazon-to-tiktok-validator",
+    "reason": "The request is a one-product TikTok entry validation rather than a signal-only lookup or generic TikTok category study."
+  },
+  {
     "id": "amazon-asin-details-only",
     "request": "帮我查一下这个 Amazon ASIN 的价格、BSR 和评论数。",
     "primarySkill": null,
     "reason": "Amazon Listing details without TikTok signal intent are outside the KOLSprite TikTok Skills package."
+  },
+  {
+    "id": "facade-caption-product-entry-preferred",
+    "request": "分析这个 TikTok 视频的字幕、Hook 和 CTA：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "environment": "Yunya is authenticated; caption_extract_url is not top-level; yunya_search_kolsprite_tools and call_read_tool are discoverable.",
+    "expectedToolFlow": [
+      "host_discover_yunya_facade_once",
+      "yunya_search_kolsprite_tools(caption_intent)",
+      "call_read_tool(returned_toolName,returned_schema_arguments)"
+    ],
+    "reason": "The current product-specific KOLSprite entrypoint is the shortest preferred facade path."
+  },
+  {
+    "id": "facade-caption-legacy-generic-compatible",
+    "request": "提取这个 TikTok 视频的字幕：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "environment": "The product-specific KOLSprite entrypoint is unavailable; legacy yunya__search_tools and call_read_tool remain discoverable.",
+    "expectedToolFlow": [
+      "yunya__search_tools(provider=kolsprite,operation=read)",
+      "call_read_tool(returned_toolName,returned_schema_arguments)"
+    ],
+    "reason": "The legacy generic facade remains a compatibility fallback when the preferred product-specific entrypoint is absent."
+  },
+  {
+    "id": "facade-caption-unavailable",
+    "request": "提取这个 TikTok 视频的字幕：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "environment": "Neither a direct caption tool nor the product-specific or legacy Yunya facade entrypoint can be discovered.",
+    "expectedToolFlow": [
+      "report_connector_discovery_failure",
+      "do_not_use_unrelated_fallback"
+    ],
+    "reason": "The Skill must distinguish connector discovery failure from an empty caption and must not silently switch services."
+  },
+  {
+    "id": "direct-caption-standalone-compatible",
+    "request": "提取并翻译这个 TikTok 视频的字幕：https://www.tiktok.com/@example/video/123",
+    "primarySkill": "kolsprite-caption",
+    "environment": "A compatible standalone KOLSprite MCP directly exposes caption_extract_url with a live schema.",
+    "expectedToolFlow": [
+      "caption_extract_url(direct_live_schema)"
+    ],
+    "reason": "Direct standalone exposure remains compatible and should not be forced through the Yunya facade."
+  },
+  {
+    "id": "facade-amazon-validator-provider-order",
+    "request": "结合 Amazon 和 TikTok 证据判断这个 ASIN 是否值得小测：B0XXXXXXXX",
+    "primarySkill": "amazon-to-tiktok-validator",
+    "environment": "Yunya exposes product-specific search entrypoints and call_read_tool at the top level.",
+    "expectedToolFlow": [
+      "yunya_search_sellersprite_tools(amazon_evidence_intent)",
+      "call_read_tool(sellersprite_returned_toolName,returned_schema_arguments)",
+      "complete_or_degrade_sellersprite_stage",
+      "yunya_search_kolsprite_tools(tiktok_validation_intent)",
+      "call_read_tool(kolsprite_returned_toolName,returned_schema_arguments)"
+    ],
+    "reason": "The facade must preserve the SellerSprite-first invariant before KOLSprite TikTok validation."
   }
 ]

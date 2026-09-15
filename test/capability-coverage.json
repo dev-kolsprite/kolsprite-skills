@@ -120,8 +120,8 @@
     "owners": ["tiktok-growth-plan/references/workflow.md"]
   },
   {
-    "id": "six-openai-yaml",
-    "owners": ["amazon-tiktok-signal/agents/openai.yaml", "kolsprite-search/agents/openai.yaml", "kolsprite-caption/agents/openai.yaml", "tiktok-shop-growth-research/agents/openai.yaml", "tiktok-account-audit/agents/openai.yaml", "tiktok-growth-plan/agents/openai.yaml"]
+    "id": "seven-openai-yaml",
+    "owners": ["amazon-tiktok-signal/agents/openai.yaml", "amazon-to-tiktok-validator/agents/openai.yaml", "kolsprite-search/agents/openai.yaml", "kolsprite-caption/agents/openai.yaml", "tiktok-shop-growth-research/agents/openai.yaml", "tiktok-account-audit/agents/openai.yaml", "tiktok-growth-plan/agents/openai.yaml"]
   },
   {
     "id": "three-level-attribution",

@@ -1,11 +1,13 @@
 {
   "name": "kolsprite-skills",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "private": true,
   "description": "Validation contract for the public KOLSprite Skills repository.",
   "license": "MIT",
   "scripts": {
-    "test": "node --test test/skill-contract.test.js"
+    "test": "node --test test/skill-contract.test.js",
+    "build:en-US": "node scripts/build-localized-package.mjs en-US",
+    "build:zh-CN": "node scripts/build-localized-package.mjs zh-CN"
   },
   "engines": {
     "node": ">=18"

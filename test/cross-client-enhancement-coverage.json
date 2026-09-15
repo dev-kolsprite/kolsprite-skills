@@ -1,6 +1,6 @@
 [
   {
-    "id": "partner-prompt-routing",
+    "id": "cross-client-prompt-routing",
     "owners": ["test/routing-cases.json", "test/skill-contract.test.js"]
   },
   {

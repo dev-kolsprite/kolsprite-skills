@@ -18,7 +18,7 @@ Use only sections that support the decision, but keep the result and first actio
 
 Summarize the account-audit and category-research ledgers, periods, markets, samples, completeness, and compatibility exclusions.
 
-For a reusable or partner-facing run, apply the shared [run evidence display](../../tiktok-shop-growth-research/references/evidence-display.md). A completed plan is workflow execution evidence, not a measured business outcome.
+For a reusable or partner-facing run, apply the bundled [run evidence display](evidence-display.md). A completed plan is workflow execution evidence, not a measured business outcome.
 
 ## 4. Account × category gap matrix
 

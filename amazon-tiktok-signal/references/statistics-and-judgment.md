@@ -1,6 +1,6 @@
 # Statistics and judgment
 
-Use these rules to turn a collected `asin_video_search` sample into simple, explainable client calculations and business judgments. The initial release deliberately avoids precise scores, fixed weights, and overfitted thresholds.
+Use these rules to turn a collected `asin_analysis_video` sample into simple, explainable client calculations and business judgments. The initial release deliberately avoids precise scores, fixed weights, and overfitted thresholds.
 
 ## 1. Product relationship
 

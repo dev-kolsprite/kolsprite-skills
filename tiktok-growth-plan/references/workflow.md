@@ -1,5 +1,7 @@
 # TikTok Growth Plan Workflow
 
+Read [account-audit-method.md](account-audit-method.md) before collecting account evidence and [opportunity-research-method.md](opportunity-research-method.md) before collecting category, product, content, or creator evidence. For a substantial or partner-facing run, also read [evidence-display.md](evidence-display.md).
+
 ## 1. Confirm the decision inputs
 
 Required for an evidence-backed plan:
@@ -13,20 +15,15 @@ Ask only for the first missing input that materially blocks the plan. If the use
 
 Record optional budget, team capacity, inventory, fulfillment, available time, price band, language, plan length, and benchmark accounts as user-supplied constraints. Unknown values remain unknown.
 
-## 2. Run and preserve the account audit
+## 2. Build and preserve the account evidence
 
-Use `tiktok-account-audit` and retain its normalized identity, scope, source ledger, confidence, account type, content pillars/cadence, representative videos, visible commerce evidence, reusable patterns/assets, main constraints, and missing evidence.
+Reuse a completed compatible account audit when available. Otherwise execute the bundled account-audit method. Retain its normalized identity, scope, source ledger, confidence, account type, content pillars/cadence, representative videos, visible commerce evidence, reusable patterns/assets, main constraints, and missing evidence.
 
 Do not upgrade user self-description into measured account evidence or reconstruct private historical operations.
 
-## 3. Run and preserve category/opportunity research
+## 3. Build and preserve category/opportunity evidence
 
-Use the relevant references under `tiktok-shop-growth-research`:
-
-- `opportunity-scan.md` for category/product demand and competition;
-- `winning-content.md` when content patterns affect the plan;
-- `creator-partnership.md` when creator supply affects the plan;
-- `cold-start.md` when a new SKU or first test is central.
+Reuse compatible category research already collected for the same market, category mapping, period, and decision. Otherwise execute the bundled opportunity-research method, including only the product, shop, content, creator, and compliance stages that can change the plan.
 
 Retain the normalized category/market, queries, samples, product/shop/video/creator evidence, opportunity label, content/creator hypotheses, business conditions, policy/compliance checks, confidence, and gaps. Do not replace source observations with a synthetic score.
 

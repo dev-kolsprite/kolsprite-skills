@@ -1,0 +1,15 @@
+interface:
+  display_name: "达人精灵·Amazon商品TikTok机会验证"
+  short_description: "结合卖家精灵与达人精灵证据，判断Amazon商品是否值得进行TikTok小规模测试"
+  default_prompt: "使用 $amazon-to-tiktok-validator 判断这个 Amazon 商品是否值得进入 TikTok，并给出最小内容和达人测试方案。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "yunyamcp"
+      description: "SellerSpace Yunya unified MCP with SellerSprite Amazon and KOLSprite TikTok tools"
+      transport: "streamable_http"
+      url: "https://www.sellerspace.com/yunya_mcp/"
+
+policy:
+  allow_implicit_invocation: true
