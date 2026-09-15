@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-> 中文用户可查看[简体中文说明](README.zh-CN.md)和[中文 Skill 导航](locales/zh-CN/README.md)，或使用 GitHub Release 中标记为 `zh-CN` 的发行包。
+> 中文用户可查看[简体中文说明](README.zh-CN.md)和[中文 Skill 导航](locales/zh-CN/README.md)。GitHub 默认在线安装保持英文；豆包工作的中文版本由豆包客户端发布渠道提供。
 
 Official AI Agent Skills for KOLSprite capabilities and SellerSprite-to-KOLSprite workflows exposed through the SellerSpace Yunya unified MCP or backward-compatible standalone MCPs.
 
@@ -14,9 +14,13 @@ KOLSprite Skills helps compatible agents route natural-language TikTok requests 
 npx skills add dev-kolsprite/kolsprite-skills
 ```
 
-This default GitHub installation uses the English Skill entrypoints. Chinese environments such as Doubao Work should use the `zh-CN` localized release package; do not install both locales in the same client.
+This default GitHub installation uses the English Skill entrypoints. Doubao Work distributes its localized Chinese version through the Doubao client release channel. The `locales/zh-CN/` sources remain in this repository for bilingual maintenance and internal packaging; they are not a GitHub online-install entrypoint.
 
-Restart or reload the AI client after installation. New installations should use one authenticated Streamable HTTP connection to the SellerSpace Yunya unified MCP:
+Restart or reload the AI client after installation.
+
+### Option A: SellerSpace Yunya unified MCP (recommended)
+
+New installations should use one authenticated Streamable HTTP connection to the SellerSpace Yunya unified MCP:
 
 ```json
 {
@@ -39,6 +43,26 @@ Replace the placeholder only in the local client's secret configuration; never c
 url = "https://www.sellerspace.com/yunya_mcp/"
 env_http_headers = { "x-api-key" = "YUNYA_MCP_KEY" }
 ```
+
+### Option B: standalone KOLSprite MCP
+
+Users who only need KOLSprite capabilities, or who already use a compatible standalone connection, can configure the standalone KOLSprite MCP directly:
+
+```json
+{
+  "mcpServers": {
+    "kss": {
+      "type": "streamable-http",
+      "url": "https://mcp.kolsprite.com/mcp",
+      "headers": {
+        "secret-key": "<YOUR_MCP_KEY>"
+      }
+    }
+  }
+}
+```
+
+Replace `<YOUR_MCP_KEY>` only in the local client's private configuration. Never commit, publish, or paste a real MCP key into an issue or conversation.
 
 The standalone KOLSprite endpoint at `https://mcp.kolsprite.com/mcp` remains a compatible runtime for KOLSprite-only Skills when it exposes the same required tool names, schemas, and response shapes. Most Skills use either Yunya or standalone KOLSprite. For `amazon-to-tiktok-validator`, a compatible standalone SellerSprite MCP can complete the Amazon stage; completing the full workflow through standalone connections also requires a compatible standalone KOLSprite MCP. The preferred Yunya route needs only one connection. If unified and standalone routes are both present, the Skills prefer Yunya and must not duplicate a paid call across services.
 

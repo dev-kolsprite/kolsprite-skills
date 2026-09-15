@@ -440,6 +440,7 @@ test("Category resolvers are conditional and portable across agent hosts", () =>
 
 test("Point-aware execution is documented without hardcoded prices", () => {
   const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
+  const chineseReadme = fs.readFileSync(path.join(root, "README.zh-CN.md"), "utf8");
   const principles = fs.readFileSync(path.join(
     root,
     "tiktok-shop-growth-research",
@@ -456,6 +457,9 @@ test("Point-aware execution is documented without hardcoded prices", () => {
   assert.match(readme, /https:\/\/www\.sellerspace\.com\/yunya_mcp\//);
   assert.match(readme, /https:\/\/mcp\.kolsprite\.com\/mcp/);
   assert.match(readme, /YUNYA_MCP_KEY/);
+  assert.match(readme, /"secret-key": "<YOUR_MCP_KEY>"/);
+  assert.match(chineseReadme, /https:\/\/mcp\.kolsprite\.com\/mcp/);
+  assert.match(chineseReadme, /"secret-key": "<YOUR_MCP_KEY>"/);
   assert.match(readme, /Different executed tools or operations may deduct different amounts/);
   assert.match(principles, /## 11\. Use points deliberately/);
   assert.match(principles, /Do not hardcode, estimate, or infer point prices/);

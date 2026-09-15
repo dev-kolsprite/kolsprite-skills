@@ -4,15 +4,17 @@
 
 达人精灵官方 AI Agent Skills，通过 SellerSpace 云雅统一 MCP，或兼容的独立 MCP，把自然语言形式的 TikTok 需求路由到相应公开工具，并将当前商品、达人、视频、店铺和字幕数据整理为证据边界清晰的建议。
 
-## 选择语言版本
+## 语言版本与发布渠道
 
-- **豆包工作及中文用户：** 使用 `zh-CN` 中文发行包。
-- **GitHub 默认安装及海外用户：** 使用 `en-US` 英文版。
-- 两种发行包具有相同能力、工具依赖和版本号，同一环境只安装一种语言版本。
+- **GitHub 在线安装：** 默认使用仓库根目录的英文 Skill，主要面向海外用户。
+- **豆包工作：** 中文版本由豆包客户端发布渠道提供，不依赖 GitHub Release 中文附件。
+- **源码维护：** `locales/zh-CN/` 继续保留 7 个中文入口，用于双语一致性维护、豆包交付和内部留档，不作为 GitHub 在线安装入口。
 
 [查看 7 个 Skill 的中文说明](locales/zh-CN/README.md)
 
 ## MCP 连接
+
+### 方式一：SellerSpace 云雅统一 MCP（推荐）
 
 新安装建议使用一个已鉴权的 SellerSpace 云雅统一 MCP：
 
@@ -31,6 +33,26 @@
 ```
 
 请只在本地客户端的私密配置中替换占位符，不要提交或公开真实密钥。
+
+### 方式二：独立达人精灵 MCP
+
+只需要达人精灵能力，或者已经使用兼容独立连接的用户，也可以直接配置独立达人精灵 MCP：
+
+```json
+{
+  "mcpServers": {
+    "kss": {
+      "type": "streamable-http",
+      "url": "https://mcp.kolsprite.com/mcp",
+      "headers": {
+        "secret-key": "<YOUR_MCP_KEY>"
+      }
+    }
+  }
+}
+```
+
+请只在本地客户端的私密配置中替换 `<YOUR_MCP_KEY>`，不要把真实密钥提交到 GitHub，也不要粘贴到 Issue 或公开对话中。
 
 独立 KOLSprite MCP 只有在工具名、输入结构和返回结构与 Skill 要求一致时才兼容。对于 `amazon-to-tiktok-validator`，兼容的独立卖家精灵 MCP 可以完成 Amazon 阶段；要通过独立连接完成整个流程，还需要兼容的独立达人精灵 MCP。统一和独立连接同时存在时，Skill 优先使用云雅，并且不得跨服务重复执行付费调用。
 
@@ -71,7 +93,7 @@
 
 不要因为一个请求同时提到多个 TikTok 对象就加载多个 Skill。应由主决策所属的 Skill 在需要时调用多个 MCP 工具。
 
-## 构建本地化发行包
+## 构建内部本地化包
 
 ```bash
 npm run build:zh-CN
@@ -88,7 +110,7 @@ outputs/
 └── kolsprite-skills-<version>-zh-CN.zip
 ```
 
-中文构建仅替换 7 个 Skill 的 `SKILL.md`。`agents/openai.yaml`、`references/`、工具契约和测试规则均与英文源包共用。
+中文构建仅替换 7 个 Skill 的 `SKILL.md`。`agents/openai.yaml`、`references/`、工具契约和测试规则均与英文源包共用。生成的 ZIP 用于豆包交付或内部留档，默认不上传 GitHub Release。
 
 ## 验证
 

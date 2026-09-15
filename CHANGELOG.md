@@ -3,7 +3,8 @@
 ## 0.4.2
 
 - Added Simplified Chinese entrypoints for all seven Skills while keeping the default GitHub Skill sources in English.
-- Added one-click English/Chinese README navigation and locale-specific release packaging for GitHub and Doubao Work.
+- Added one-click English/Chinese README navigation and locale-specific internal packaging for Doubao delivery and maintenance.
+- Simplified release channels: GitHub keeps the default English online-install source, Doubao Work distributes its Chinese version through the Doubao client, and `locales/zh-CN/` remains in source for bilingual consistency without requiring a Chinese GitHub Release asset.
 - Added localization parity tests for Skill names, MCP tool tokens, relative references, and standalone-install boundaries.
 - Added dual exposure-mode routing for directly callable business tools and the Yunya `search_tools` → `call_read_tool` facade.
 - Distinguished a host-level business-tool miss from an internal-catalogue absence, with one facade-discovery attempt, exact returned-schema use, per-run reuse, and no unrelated fallback.
@@ -11,6 +12,7 @@
 - Aligned the preferred facade path with `yunya_search_sellersprite_tools`, `yunya_search_kolsprite_tools`, and `yunya_search_sellerspace_tools`, while retaining `yunya__search_tools` as the legacy provider-based fallback.
 - Recorded that the facade-discovery fix passed end-to-end verification in published Doubao Work on 2026-09-15 and removed the obsolete pending-fix language.
 - Clarified that a compatible standalone SellerSprite MCP can complete the Amazon stage, while the full standalone validator workflow additionally requires a compatible KOLSprite MCP; standardized the standalone-connection terminology.
+- Added copy-ready installation examples for both the recommended SellerSpace Yunya unified MCP and the compatible standalone KOLSprite MCP, using secret placeholders only.
 
 ## 0.4.1
 
